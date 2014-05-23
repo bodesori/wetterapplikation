@@ -18,11 +18,29 @@ function success(pos) {
 
   $.ajax({
   	url: 'https://api.forecast.io/forecast/08fe7a18b9273c9859e14b99ec1fe912/' + crd.latitude + ',' + crd.longitude,
+  	data: {
+  		units: 'si'
+  	},
   	dataType: 'jsonp',
   	success: function(data) {
   		console.log(data);
+  		$('.js-temp').text(data.currently.temperature + '°C');
+  		$('.js-wspeed').text(data.currently.windSpeed + ' m pro Sekunde');
   	}
   });
+
+  $.ajax({
+  	url: 'https://maps.googleapis.com/maps/api/geocode/json',
+  	data: {
+  		latlng: crd.latitude + ',' + crd.longitude,
+  		sonsor: true
+  	},
+  	success: function(data) {
+  		console.log(data);
+  		$('.js-address').text(data.results[0].formatted_address);
+  	}
+  });
+
 };
 
 function error(err) {
@@ -30,4 +48,3 @@ function error(err) {
 };
 
 navigator.geolocation.getCurrentPosition(success, error, options);
-
