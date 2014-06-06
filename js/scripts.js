@@ -41,23 +41,35 @@ function success(pos) {
   	}
   });
 
-  // Umgekehrte Geocoding
-  $.ajax ({
-    url: 'http://maps.googleapis.com/maps/api/geocode/json',
-    data: {
-      address: '1600+Amphitheatre+Parkway,+Mountain+View,+CA',
-      sensor: true
-    },
-    success: function(data) {
-      console.log(data);
-    }
+  /**
+  * Umgekehrtes Geocoding
+  * Anhand von Adresseingabe wird Ergebnis geliefert
+  */
+  $('.js-custom-address').on('click','a', function(event) {
+    event.preventDefault(); // unterbindet das defaultverhalten
+
+    // var address = $('.js-custom-address input') Wäre auch eine Variante
+    var address = $('input', '.js-custom-address').val(); // Das val element liest den Inhalt aus dem Inputelement
+
+    $.ajax({
+      url: 'http://maps.googleapis.com/maps/api/geocode/json',
+      data: {
+        address: address,
+        sensor: false
+      },
+      success: function(data) {
+        console.log(data);
+        $('.js-custom-address-result').text(data.results[0].geometry.location.lat + ',' + data.results[0].geometry.location.lng);
+      }
+    });
+
   });
 
-};
+}
 
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
-};
+}
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
