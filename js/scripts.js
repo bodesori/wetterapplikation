@@ -41,6 +41,18 @@ function success(pos) {
   	}
   });
 
+  // Umgekehrte Geocoding
+  $.ajax ({
+    url: 'http://maps.googleapis.com/maps/api/geocode/json',
+    data: {
+      address: '1600+Amphitheatre+Parkway,+Mountain+View,+CA',
+      sensor: true
+    },
+    success: function(data) {
+      console.log(data);
+    }
+  });
+
 };
 
 function error(err) {
@@ -48,3 +60,5 @@ function error(err) {
 };
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+
+
