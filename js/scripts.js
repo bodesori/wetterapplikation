@@ -16,7 +16,7 @@ function success(pos) {
   $('.js-long').text(crd.longitude);
   $('.js-acc').text(crd.accuracy + ' m');
 
-  $.ajax({
+  $.ajax({ // Anfrage an Forecast
   	url: 'https://api.forecast.io/forecast/08fe7a18b9273c9859e14b99ec1fe912/' + crd.latitude + ',' + crd.longitude,
   	data: {
   		units: 'si'
@@ -29,7 +29,7 @@ function success(pos) {
   	}
   });
 
-  $.ajax({
+  $.ajax({ // Anfrage an GoogleAPI
   	url: 'https://maps.googleapis.com/maps/api/geocode/json',
   	data: {
   		latlng: crd.latitude + ',' + crd.longitude,
@@ -41,6 +41,7 @@ function success(pos) {
   	}
   });
 
+  
   /**
   * Umgekehrtes Geocoding
   * Anhand von Adresseingabe wird Ergebnis geliefert
@@ -59,7 +60,29 @@ function success(pos) {
       },
       success: function(data) {
         console.log(data);
-        $('.js-custom-address-result').text(data.results[0].geometry.location.lat + ',' + data.results[0].geometry.location.lng);
+        
+        /**
+        * Anfrage an Forecast mit eingegebenen Koordinaten von Adresse
+        */
+        // Koordinaten von Anfrage
+        var lat = data.results[0].geometry.location.lat;
+        var lng = data.results[0].geometry.location.lng;
+        $('.js-custom-address-output').text(data.results[0].formatted_address);
+
+        $.ajax({ // Anfrage an Forecast mit lat und lang
+          url: 'https://api.forecast.io/forecast/08fe7a18b9273c9859e14b99ec1fe912/' + lat + ',' + lng,
+          data: {
+            units: 'si'
+          },
+          dataType: 'jsonp',
+          success: function(data) {
+            console.log(data);
+            $('.js-custom-address').text
+            $('.js-custom-temp').text(data.currently.temperature + '°C');
+            $('.js-custom-wspeed').text(data.currently.windSpeed + ' m pro Sekunde');
+          }
+        });
+
       }
     });
 
@@ -72,5 +95,3 @@ function error(err) {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
-
-
