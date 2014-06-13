@@ -11,19 +11,22 @@
 </head>
 <body>
 
-<div data-role="page" id="mainPage">
+<div data-role="page" id="main">
 	
-	<div data-role="panel" id="menu" data-display="push">
-	    Hallo
+	<div data-role="panel" id="menu" data-display="overlay">
+	    <ul data-role="listview">
+	    	<li>Main Location</li>
+		    <li><a href="#custom">Custom Location</a></li>
+		</ul>
 	</div><!-- /panel -->
 
 	<div data-role="header">
 		<h1>Main Page</h1>
-		<a href="#menu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon">Menu</a>
+		<a href="#menu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		<p>Page content goes here.</p>
+		<p>Current Position: <span class="js-current-position">-</span></p>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -31,10 +34,18 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
-<div data-role="page" id="customPage">
+<div data-role="page" id="custom">
+
+	<div data-role="panel" id="menucustom" data-display="overlay">
+	    <ul data-role="listview">
+		    <li><a href="#main">Main Locatin</a></li>
+		    <li>Custom Location</li>
+		</ul>
+	</div><!-- /panel -->
 
 	<div data-role="header">
 		<h1>Custom Page</h1>
+		<a href="#menucustom" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
@@ -45,5 +56,6 @@
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
+<script src="js/service.js"></script>
 </body>
 </html>
