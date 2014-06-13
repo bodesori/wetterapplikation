@@ -1,81 +1,49 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Meine Position</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Wetterapplikation</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
 <body>
-	<h1>Meine Position</h1>
-	<dl>
-		<dt>Longitued</dt>
-		<dd class="js-long"></dd>
 
-		<dt>Latitude</dt>
-		<dd class="js-lat">-</dd>
+<div data-role="page" id="mainPage">
+	
+	<div data-role="panel" id="menu" data-display="push">
+	    Hallo
+	</div><!-- /panel -->
 
-		<dt>Accuracy</dt>
-		<dd class="js-acc">-</dd>
+	<div data-role="header">
+		<h1>Main Page</h1>
+		<a href="#menu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon">Menu</a>
+	</div><!-- /header -->
 
-		<dt>Adress</dt>
-		<dd class="js-address">-</dd>
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
 
-		<dt>Current Temperature</dt>
-		<dd class="js-temp">-</dd>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 
-		<dt>Wind Speed</dt>
-		<dd class="js-wspeed">-</dd>
+<div data-role="page" id="customPage">
 
-		<dt>Weather</dt>
-		<dd class="weather-icon js-weather-icon"></dd>
-	</dl>
+	<div data-role="header">
+		<h1>Custom Page</h1>
+	</div><!-- /header -->
 
-	<h1>Gewünschte Position</h1>
-	<span class="icon" data-icon="H"></a>
-	<dl>
-		<dt>Custom Adress:</dt>
-		<dd class="js-custom-address">
-			<input type="text" name="adress">
-			<a href="">Search</a><br>
-			<span class="js-custom-address-result"></span>
-		</dd>
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
 
-		<dt>Adress</dt>
-		<dd class="js-custom-address-output">-</dd>
-
-		<dt>Current Temperature</dt>
-		<dd class="js-temp">-</dd>
-
-		<dt>Wind Speed</dt>
-		<dd class="js-custom-wspeed">-</dd>
-
-		<dt>Custom Weather</dt>
-		<dd class="weather-icon js-custom-weather-icon"></dd>
-	</dl>
-
-	<h1>Weather in Rio de Janeiro</h1>
-	<span class="icon" data-icon="H"></a>
-	<dl>
-		<dt>Adress</dt>
-		<dd class="js-address-janeiro">-</dd>
-
-		<dt>Current Temperature</dt>
-		<dd class="js-temp-janeiro">-</dd>
-
-		<dt>Wind Speed</dt>
-		<dd class="js-wind-janeiro">-</dd>
-	</dl>
-
-	<h1>Weather in Manaus</h1>
-	<span class="icon" data-icon="H"></a>
-	<dl>
-		<dt>Adress</dt>
-		<dd class="js-address-manaus">-</dd>
-
-		<dt>Weather</dt>
-		<dd class="js-weather-manaus"></dd>
-	</dl>
-	<script src="js/scripts.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 </body>
 </html>
