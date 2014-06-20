@@ -11,12 +11,16 @@
 </head>
 <body>
 
+
+
+
+
 <div data-role="page" id="main">
-	
 	<div data-role="panel" id="menu" data-display="overlay">
 	    <ul data-role="listview">
 	    	<li>Main Location</li>
 		    <li><a href="#custom">Custom Location</a></li>
+		    <li><a href="#settings">Settings</a></li>
 		</ul>
 	</div><!-- /panel -->
 
@@ -27,6 +31,7 @@
 
 	<div role="main" class="ui-content">
 		<p>Current Position: <span class="js-current-position">-</span></p>
+		<p>Current address: <span class="js-current-address">-</span></p>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -34,12 +39,21 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
+
+
+
+
+
+
+
+
 <div data-role="page" id="custom">
 
 	<div data-role="panel" id="menucustom" data-display="overlay">
 	    <ul data-role="listview">
 		    <li><a href="#main">Main Locatin</a></li>
 		    <li>Custom Location</li>
+		    <li><a href="#settings">Settings</a></li>
 		</ul>
 	</div><!-- /panel -->
 
@@ -56,6 +70,50 @@
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
+
+
+
+
+
+
+<div data-role="page" id="settings">
+
+	<div data-role="panel" id="menusettings" data-display="overlay">
+	    <ul data-role="listview">
+		    <li><a href="#main">Main Locatin</a></li>
+		    <li><a href="#custom">Custom Location</a></li>
+		    <li>Settings</li>
+		</ul>
+	</div><!-- /panel -->
+
+	<div data-role="header">
+		<h1>Settings</h1>
+		<a href="#menusettings" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<form>
+			<div class="ui-field-contain">
+			    <label for="select-language">Language</label>
+			    <select name="select-language" class="js-language">
+			        <option value="de">Deutsch</option>	
+			        <option value="id">Indonesian</option>
+			        <option value="vi">Vietnamese</option>
+			        <option value="iw">Hebrew</option>
+			    </select>
+			</div>
+		</form>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+
 <script src="js/service.js"></script>
 </body>
 </html>
