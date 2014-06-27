@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<link rel="stylesheet" href="css/style.css">
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
@@ -31,6 +32,9 @@
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
+		<span class="weather-icon js-weather-icon"></span>
+
+
 		<p>Current position: <span class="js-current-position">-</span></p>
 		<p>Current address: <span class="js-current-address">-</span></p>
 	</div><!-- /content -->
@@ -41,7 +45,7 @@
 
 
 
-<!-- Erweiterte Ansicht -->
+<!-- Custom Location -->
 <div data-role="page" id="custom">
 
 	<div data-role="panel" id="menucustom" data-display="push" data-position="left">
@@ -53,12 +57,20 @@
 	</div><!-- /panel -->
 
 	<div data-role="header">
-		<h1>Custom Page</h1>
+		<h1><span class="js-custom-address-output"></span></h1>
 		<a href="#menucustom" class="ui-btn ui-btn-left ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		<p>Page content goes here.</p>
+		<dl>
+			<dt>Custom Adress:</dt>
+			<p class="js-custom-address">
+				<input type="text" name="adress">
+				<a href="" class="ui-btn ui-icon-search ui-btn-icon-right">Search</a><br>
+				<span class="js-custom-address-result"></span>
+			</p>
+
+		<dl>
 	</div><!-- /content -->
 
 	<div data-role="footer">
